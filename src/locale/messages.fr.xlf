@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="descriptionMessage" datatype="html">
+        <source>Message for developers</source>
+        <target>Message aux développeurs</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description"> Simple description for cards </note>
+        <note priority="1" from="meaning">description message </note>
+      </trans-unit>
+      <trans-unit id="6d24a25232a3f609ad5990c2fafd91c711cf4add" datatype="html">
+        <source>{VAR_PLURAL, plural, =0 {No courses available.} =1 {One course available. } other {A total of <x id="INTERPOLATION"/> courses are available }}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">19,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="043080180d03cb70b2bcfec2486563e1decd864c" datatype="html">
+        <source> <x id="ICU" equiv-text="{
+    coursesTotal, plural, =0 {No courses available.}
+    =1 { One course available. }
+    other { A total of {{coursesTotal}} courses are available }
+    }"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">19,23</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

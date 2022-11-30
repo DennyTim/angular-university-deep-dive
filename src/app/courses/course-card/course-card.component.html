@@ -1,0 +1,49 @@
+<ng-container *ngIf="course">
+  <div
+    class="course-card"
+    [ngClass]="cardClasses()"
+  >
+    <course-title class="course-title" [title]="course?.description"></course-title>
+
+    <ng-content
+      *ngIf="course.iconUrl; else noImage"
+      select="course-image"
+    ></ng-content>
+
+    <ng-template #noImage>
+      <ng-container *ngTemplateOutlet="
+        noImageTpl;
+        context: { description: course.description }
+      "></ng-container>
+    </ng-template>
+
+    <ng-content select=".course-description"></ng-content>
+
+    <ng-container [ngSwitch]="course.category">
+      <div class="course-category">
+        <ng-container *ngSwitchCase="'BEGINNER'">
+          <div class="category">Beginner</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'INTERMEDIATE'">
+          <div class="category">Intermediate</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'ADVANCED'">
+          <div class="category">Advanced</div>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <div class="category">All levels</div>
+        </ng-container>
+      </div>
+    </ng-container>
+
+    <div class="course-description">
+      Edit Title:
+      <input
+        #courseTitle
+        [value]="course.description"
+        (keyup)="onTitleChanged(courseTitle.value)"
+      >
+    </div>
+    <button (click)="onCourseUpdated(courseTitle.value)">Save Course</button>
+  </div>
+</ng-container>

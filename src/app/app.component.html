@@ -5,18 +5,60 @@
     alt="logo"
   >
 </div>
-<div class="courses">
-  <div class="course-card">
-    <div class="course-title">
-      Angular Core Deep Dive
+
+<ng-template #blankImage let-courseName="description">
+  <p class="warn">{{ courseName }}&nbsp;No image is available yet</p>
+  <img
+    src="https://raw.githubusercontent.com/angular-university/angular-course/master/src/assets/empty-image.png"
+    alt="noImage"
+  >
+</ng-template>
+
+<div class="salmon-theme">
+  <span i18n="description message | Simple description for cards @@descriptionMessage">Message for developers</span>
+  <div i18n> {
+    coursesTotal, plural, =0 {No courses available.}
+    =1 { One course available. }
+    other { A total of {{coursesTotal}} courses are available }
+    }</div>
+
+
+  <ng-template [ngIf]="courses$ | async" let-items>
+    <div class="courses">
+      <course-card
+        highlighted
+        #highlighter="hl"
+        *ngFor="
+          let course of (items | filterByCategory : 'BEGINNER');
+          index as i;
+          first as isFirst;
+          last as isLast;
+          even as isEven;
+          odd as isOdd;
+        "
+        type='beginner'
+        [class.is-first]="isFirst"
+        [class.is-last]="isLast"
+        [class.is-even]="isEven"
+        [class.is-odd]="isOdd"
+        [course]="course"
+        [cardIndex]="i + 1"
+        [noImageTpl]="blankImage"
+        (toggleHighlight)="onToggle($event)"
+        (courseSelected)="save($event)"
+      >
+        <!-- directive instead of ngIf -->
+        <course-image
+          *ngxUnless="!course.iconUrl"
+          [imageUrl]="course.iconUrl"
+        ></course-image>
+        <div
+          class="course-description"
+          (dblclick)="highlighter.toggle()"
+        >
+          {{ course?.longDescription }}
+        </div>
+      </course-card>
     </div>
-    <img
-      width="300"
-      alt="Angular Logo"
-      src="https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-core-in-depth-small.png"
-    >
-    <div class="course-description">
-      A detailed walk-through of the most important part of Angular - the Core and Common modules.
-    </div>
-  </div>
+  </ng-template>
 </div>

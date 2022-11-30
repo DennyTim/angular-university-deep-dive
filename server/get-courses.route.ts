@@ -11,7 +11,7 @@ export function getAllCourses(req: Request, res: Response): void {
 }
 
 export function getCourseById(req: Request, res: Response): void {
-  const courseId = req.params['id'];
+  const courseId = req.params.id;
   const courses: any = Object.values(COURSES);
   const course = courses.find((course) => course.id === courseId);
 

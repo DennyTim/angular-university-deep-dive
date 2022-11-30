@@ -23,7 +23,6 @@ export const COURSES: any = [
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-ngrx-course.png',
     category: 'ADVANCED'
   },
-
   {
     id: 4,
     description: 'Angular for Beginners',
@@ -43,7 +42,7 @@ export const COURSES: any = [
   {
     id: 6,
     description: 'Angular PWA Course',
-    longDescription: '<p class=\'course-description\'>Learn Angular Progressive Web Applications, build the future of the Web Today.',
+    longDescription: '<p class=\'model-description\'>Learn Angular Progressive Web Applications, build the future of the Web Today.',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-pwa-course.png',
     category: 'ADVANCED',
     lessonsCount: 8

@@ -1,18 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
+import { CoursesModule } from './courses/courses.module';
 import { AppComponent } from './app.component';
-import { CourseCardComponent } from './course-card/course-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CourseTitleComponent } from './course-title/course-title.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseCardComponent
+    CourseTitleComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    CoursesModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ],
+  entryComponents: [ CourseTitleComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}
